@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SFU Physiotherapy Physiology Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --secondary-gold: #F5E8B7;
+            --dark-bg: #0F0F0F;
+            --medium-bg: #1A1A1A;
+            --light-bg: #252525;
+            --text-light: #F5F5F5;
+            --text-medium: #CCCCCC;
+            --accent-blue: #4A6FA5;
+            --accent-green: #2E8B57;
+            --accent-red: #B22222;
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --inner-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-medium);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            color: var(--primary-gold);
+            border-bottom: 2px solid var(--primary-gold);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: var(--secondary-gold);
+            margin-top: 2.5rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--primary-gold);
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            color: var(--text-light);
+            margin-top: 2rem;
+        }
+
+        h4 {
+            font-size: 1.4rem;
+            color: var(--accent-blue);
+            margin-top: 1.5rem;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            color: var(--primary-gold);
+            font-size: 2.2rem;
+        }
+
+        .logo-text h2 {
+            font-size: 1.8rem;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            letter-spacing: 1px;
+        }
+
+        /* Navigation */
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-medium);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-gold);
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+
+        .nav-link.active {
+            color: var(--primary-gold);
+            background-color: rgba(212, 175, 55, 0.15);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 2px;
+            background-color: var(--primary-gold);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 3rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+            background-color: var(--medium-bg);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .sidebar-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-gold);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sidebar-list {
+            list-style: none;
+        }
+
+        .sidebar-item {
+            margin-bottom: 0.8rem;
+        }
+
+        .sidebar-link {
+            display: block;
+            padding: 0.8rem 1rem;
+            color: var(--text-medium);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            border-left: 3px solid transparent;
+        }
+
+        .sidebar-link:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+            color: var(--text-light);
+            border-left: 3px solid var(--primary-gold);
+            padding-left: 1.2rem;
+        }
+
+        .sidebar-link.active {
+            background-color: rgba(212, 175, 55, 0.15);
+            color: var(--primary-gold);
+            border-left: 3px solid var(--primary-gold);
+            font-weight: 500;
+        }
+
+        /* Content Area */
+        .content {
+            background-color: var(--medium-bg);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-radius: var(--border-radius);
+            box-shadow: var(--inner-shadow);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--light-bg);
+        }
+
+        th {
+            background-color: rgba(212, 175, 55, 0.2);
+            color: var(--primary-gold);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid var(--primary-gold);
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        tr:hover {
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+
+        /* Lists */
+        ul, ol {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            padding-left: 0.5rem;
+        }
+
+        ul li::marker {
+            color: var(--primary-gold);
+        }
+
+        /* Special Elements */
+        .key-concept {
+            background-color: rgba(74, 111, 165, 0.1);
+            border-left: 4px solid var(--accent-blue);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .exam-tip {
+            background-color: rgba(46, 139, 87, 0.1);
+            border-left: 4px solid var(--accent-green);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .important {
+            color: var(--primary-gold);
+            font-weight: 600;
+        }
+
+        .highlight {
+            background-color: rgba(212, 175, 55, 0.2);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            color: var(--text-light);
+        }
+
+        /* Definition Lists */
+        .definition {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 1.5rem 0;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .definition dt {
+            color: var(--primary-gold);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .definition dd {
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            color: var(--text-medium);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .footer-link {
+            color: var(--text-medium);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-link:hover {
+            color: var(--primary-gold);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .container {
+                padding: 9rem 1rem 2rem;
+            }
+            
+            .content {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Animation for active section */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        /* Print styles */
+        @media print {
+            .header, .sidebar, .footer {
+                display: none;
+            }
+            
+            .container {
+                padding: 0;
+                grid-template-columns: 1fr;
+            }
+            
+            body {
+                background-color: white;
+                color: black;
+            }
+            
+            .content {
+                box-shadow: none;
+                border: none;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-book-medical"></i>
+                </div>
+                <div class="logo-text">
+                    <h2>SFU Physiotherapy Physiology</h2>
+                    <p>Year 1 Exam Preparation Notes</p>
+                </div>
+            </div>
+            <nav class="nav-links">
+                <a href="#" class="nav-link active" data-section="epithelial">Epithelial Tissue</a>
+                <a href="#" class="nav-link" data-section="connective">Connective Tissue</a>
+                <a href="#" class="nav-link" data-section="membranes">Membranes</a>
+                <a href="#" class="nav-link" data-section="integumentary">Integumentary System</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <h3 class="sidebar-title"><i class="fas fa-list"></i> Contents</h3>
+            <ul class="sidebar-list">
+                <li class="sidebar-item"><a href="#epithelial-tissue" class="sidebar-link active">Epithelial Tissue</a></li>
+                <li class="sidebar-item"><a href="#connective-tissue" class="sidebar-link">Connective Tissue</a></li>
+                <li class="sidebar-item"><a href="#muscle-tissue" class="sidebar-link">Muscle Tissue</a></li>
+                <li class="sidebar-item"><a href="#membranes" class="sidebar-link">Membranes</a></li>
+                <li class="sidebar-item"><a href="#integumentary-system" class="sidebar-link">Integumentary System</a></li>
+                <li class="sidebar-item"><a href="#comparison-tables" class="sidebar-link">Comparison Tables</a></li>
+                <li class="sidebar-item"><a href="#key-concepts" class="sidebar-link">Key Exam Concepts</a></li>
+            </ul>
+            
+            <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                <h4 style="font-size: 1.2rem; color: var(--primary-gold); margin-bottom: 1rem;"><i class="fas fa-lightbulb"></i> Study Tips</h4>
+                <ul style="font-size: 0.9rem;">
+                    <li>Focus on structure-function relationships</li>
+                    <li>Create comparison tables for similar tissues</li>
+                    <li>Use mnemonics for classification systems</li>
+                    <li>Review diagrams alongside descriptions</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <!-- Epithelial Tissue Section -->
+            <section id="epithelial-tissue" class="section">
+                <h1>Epithelial Tissue</h1>
+                
+                <div class="definition">
+                    <dt>Definition:</dt>
+                    <dd>Tissue that covers body surfaces, lines body cavities, and forms glands. Characterized by tightly packed cells with little extracellular matrix.</dd>
+                </div>
+                
+                <h2>A. Characteristics</h2>
+                <ul>
+                    <li><span class="important">Cellularity:</span> Composed almost entirely of cells</li>
+                    <li><span class="important">Polarity:</span> Has apical (free) and basal (attached) surfaces</li>
+                    <li><span class="important">Attachment:</span> Basal surface attaches to <span class="highlight">basement membrane</span></li>
+                    <li><span class="important">Avascularity:</span> No blood vessels</li>
+                    <li><span class="important">Regeneration:</span> High capacity for renewal</li>
+                </ul>
+                
+                <h2>B. Classification</h2>
+                <p>Based on two factors:</p>
+                <ol>
+                    <li><span class="important">Cell Shape:</span> Squamous (flat), Cuboidal (cube), Columnar (tall)</li>
+                    <li><span class="important">Number of Layers:</span> Simple (single), Stratified (multiple)</li>
+                </ol>
+                
+                <h2>C. Types of Epithelia</h2>
+                
+                <h3>Simple Epithelia (Single Layer)</h3>
+                
+                <h4>Simple Squamous</h4>
+                <ul>
+                    <li><span class="important">Structure:</span> Thin, flat cells</li>
+                    <li><span class="important">Locations:</span>
+                        <ul>
+                            <li><span class="highlight">Mesothelium</span> - lines body cavities (peritoneal, pleural, pericardial)</li>
+                            <li><span class="highlight">Endothelium</span> - lines heart and blood vessels</li>
+                        </ul>
+                    </li>
+                    <li><span class="important">Function:</span> Allows diffusion/filtration</li>
+                </ul>
+                
+                <h4>Simple Cuboidal</h4>
+                <ul>
+                    <li><span class="important">Structure:</span> Cube-shaped cells</li>
+                    <li><span class="important">Locations:</span> Kidney tubules, gland ducts</li>
+                    <li><span class="important">Function:</span> Secretion and absorption</li>
+                </ul>
+                
+                <h4>Simple Columnar</h4>
+                <ul>
+                    <li><span class="important">Structure:</span> Tall cells, may have microvilli</li>
+                    <li><span class="important">Locations:</span> Stomach, intestine, gallbladder</li>
+                    <li><span class="important">Function:</span> Protection, secretion, absorption</li>
+                </ul>
+                
+                <h3>Stratified Epithelia (Multiple Layers)</h3>
+                
+                <h4>Stratified Squamous</h4>
+                <ul>
+                    <li><span class="important">Structure:</span> Multiple layers, surface cells flat</li>
+                    <li><span class="important">Types:</span>
+                        <ul>
+                            <li><span class="highlight">Keratinized:</span> Skin (dead surface cells filled with keratin)</li>
+                            <li><span class="highlight">Non-keratinized:</span> Mouth, throat, esophagus, vagina</li>
+                        </ul>
+                    </li>
+                    <li><span class="important">Function:</span> Protection against abrasion</li>
+                </ul>
+                
+                <h4>Stratified Cuboidal</h4>
+                <ul>
+                    <li><span class="important">Structure:</span> Rare, 2-3 layers of cube-shaped cells</li>
+                    <li><span class="important">Locations:</span> Sweat gland ducts</li>
+                    <li><span class="important">Function:</span> Protection, secretion, absorption</li>
+                </ul>
+                
+                <h3>Special Types</h3>
+                
+                <h4>Pseudostratified Columnar</h4>
+                <ul>
+                    <li><span class="important">Structure:</span> All cells touch basement membrane but appear layered</li>
+                    <li><span class="important">Locations:</span> Trachea, bronchi, male reproductive tract</li>
+                    <li><span class="important">Function:</span> Protection, secretion, moves mucus with cilia</li>
+                </ul>
+                
+                <h4>Transitional Epithelium (Urothelium)</h4>
+                <ul>
+                    <li><span class="important">Structure:</span> Cells change from cuboidal to squamous when stretched</li>
+                    <li><span class="important">Locations:</span> Urinary bladder, ureters, renal pelvis</li>
+                    <li><span class="important">Function:</span> Permits stretching without damage</li>
+                </ul>
+                
+                <h2>D. Glandular Epithelia</h2>
+                
+                <h3>Exocrine Glands (secrete onto surfaces via ducts)</h3>
+                
+                <h4>Modes of Secretion:</h4>
+                <ol>
+                    <li><span class="important">Merocrine:</span> Secretion by exocytosis (e.g., salivary glands)</li>
+                    <li><span class="important">Apocrine:</span> Lose apical cytoplasm (e.g., mammary glands)</li>
+                    <li><span class="important">Holocrine:</span> Whole cell bursts (e.g., sebaceous glands)</li>
+                </ol>
+                
+                <h4>Structural Types:</h4>
+                <ul>
+                    <li><span class="important">Simple:</span> Duct does not branch (intestinal glands, sweat glands)</li>
+                    <li><span class="important">Compound:</span> Duct branches (salivary glands, mammary glands)</li>
+                    <li><span class="important">Unicellular:</span> Single cells (goblet cells in intestine)</li>
+                </ul>
+            </section>
+            
+            <!-- Connective Tissue Section -->
+            <section id="connective-tissue" class="section" style="display: none;">
+                <h1>Connective Tissue</h1>
+                
+                <div class="definition">
+                    <dt>Definition:</dt>
+                    <dd>The most abundant tissue type that binds together, supports, and strengthens other body tissues. Characterized by cells dispersed in an extracellular matrix.</dd>
+                </div>
+                
+                <h2>A. General Characteristics</h2>
+                <ul>
+                    <li>Most abundant tissue type</li>
+                    <li><span class="important">Components:</span> Cells + Extracellular Matrix (Fibers + Ground Substance)</li>
+                    <li><span class="important">Functions:</span> Binding, support, protection, insulation, transport, defense</li>
+                </ul>
+                
+                <h2>B. Cells of Connective Tissue Proper</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Cell Type</th>
+                                <th>Function</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="highlight">Fibroblasts</span></td>
+                                <td>Most common; produce fibers and ground substance</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight">Fibrocytes</span></td>
+                                <td>Maintain connective tissue fibers</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight">Adipocytes</span></td>
+                                <td>Fat cells; store lipids</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight">Mesenchymal Cells</span></td>
+                                <td>Stem cells for repair</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight">Macrophages</span></td>
+                                <td>Phagocytic; engulf pathogens/debris</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight">Mast Cells</span></td>
+                                <td>Release <span class="important">histamine</span> (inflammation) and <span class="important">heparin</span> (anticoagulant)</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight">Lymphocytes</span></td>
+                                <td>Immune cells</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight">Microphages</span></td>
+                                <td>Phagocytic blood cells (neutrophils, eosinophils)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h2>C. Classification of Connective Tissues</h2>
+                
+                <h3>1. Connective Tissue Proper</h3>
+                
+                <h4>Loose Connective Tissues:</h4>
+                
+                <div class="definition">
+                    <dt>Areolar Tissue</dt>
+                    <dd>
+                        <ul>
+                            <li><span class="important">Structure:</span> Loose arrangement of all fibers and cells</li>
+                            <li><span class="important">Locations:</span> Under epithelia, around organs, between muscles</li>
+                            <li><span class="important">Function:</span> Cushions, permits movement</li>
+                        </ul>
+                    </dd>
+                    
+                    <dt>Adipose Tissue</dt>
+                    <dd>
+                        <ul>
+                            <li><span class="important">Structure:</span> Dominated by adipocytes (fat cells)</li>
+                            <li><span class="important">Locations:</span> Subcutaneous fat, around kidneys/eyes, breasts</li>
+                            <li><span class="important">Function:</span> Padding, insulation, energy storage</li>
+                        </ul>
+                    </dd>
+                    
+                    <dt>Reticular Tissue</dt>
+                    <dd>
+                        <ul>
+                            <li><span class="important">Structure:</span> Network of reticular fibers</li>
+                            <li><span class="important">Locations:</span> Liver, spleen, lymph nodes, bone marrow</li>
+                            <li><span class="important">Function:</span> Forms supportive <span class="highlight">stroma</span> (framework)</li>
+                        </ul>
+                    </dd>
+                </div>
+                
+                <h4>Dense Connective Tissues:</h4>
+                
+                <div class="definition">
+                    <dt>Dense Regular</dt>
+                    <dd>
+                        <ul>
+                            <li><span class="important">Structure:</span> Parallel collagen fibers</li>
+                            <li><span class="important">Locations:</span> <span class="highlight">Tendons</span> (muscle to bone), <span class="highlight">Ligaments</span> (bone to bone)</li>
+                            <li><span class="important">Function:</span> Resists tension in one direction</li>
+                        </ul>
+                    </dd>
+                    
+                    <dt>Dense Irregular</dt>
+                    <dd>
+                        <ul>
+                            <li><span class="important">Structure:</span> Irregular collagen fibers</li>
+                            <li><span class="important">Locations:</span> <span class="highlight">Dermis</span> of skin, organ capsules</li>
+                            <li><span class="important">Function:</span> Resists tension from multiple directions</li>
+                        </ul>
+                    </dd>
+                    
+                    <dt>Elastic Tissue</dt>
+                    <dd>
+                        <ul>
+                            <li><span class="important">Structure:</span> Dominated by elastic fibers</li>
+                            <li><span class="important">Locations:</span> Large arteries (aorta), elastic ligaments, erectile tissue</li>
+                            <li><span class="important">Function:</span> Allows stretch and recoil</li>
+                        </ul>
+                    </dd>
+                </div>
+                
+                <h3>2. Fluid Connective Tissues</h3>
+                
+                <h4>Blood:</h4>
+                <ul>
+                    <li><span class="important">Matrix:</span> <span class="highlight">Plasma</span> (liquid)</li>
+                    <li><span class="important">Cells:</span>
+                        <ul>
+                            <li><span class="highlight">Erythrocytes (RBCs):</span> Transport O₂/CO₂; no nucleus</li>
+                            <li><span class="highlight">Leukocytes (WBCs):</span> Defense (monocytes, lymphocytes, eosinophils, neutrophils, basophils)</li>
+                            <li><span class="highlight">Platelets:</span> Cell fragments for clotting</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <h4>Lymph:</h4>
+                <ul>
+                    <li>Derived from interstitial fluid</li>
+                    <li>Circulates in lymphatic vessels</li>
+                    <li>Contains lymphocytes for immune monitoring</li>
+                    <li>Returns to veins near heart</li>
+                </ul>
+                
+                <h3>3. Supporting Connective Tissues</h3>
+                
+                <h4>Cartilage:</h4>
+                <p>Avascular; cells = <span class="highlight">chondrocytes</span> in <span class="highlight">lacunae</span></p>
+                
+                <div class="definition">
+                    <dt>Hyaline Cartilage</dt>
+                    <dd>
+                        <ul>
+                            <li><span class="important">Structure:</span> Most common; tough but flexible</li>
+                            <li><span class="important">Locations:</span> Rib-sternum joints, nasal cartilage, trachea, fetal skeleton</li>
+                            <li><span class="important">Function:</span> Support, reduces friction</li>
+                        </ul>
+                    </dd>
+                    
+                    <dt>Elastic Cartilage</dt>
+                    <dd>
+                        <ul>
+                            <li><span class="important">Structure:</span> Many elastic fibers; very flexible</li>
+                            <li><span class="important">Locations:</span> External ear, epiglottis</li>
+                            <li><span class="important">Function:</span> Support with flexibility</li>
+                        </ul>
+                    </dd>
+                    
+                    <dt>Fibrocartilage</dt>
+                    <dd>
+                        <ul>
+                            <li><span class="important">Structure:</span> Dense collagen fibers; very tough</li>
+                            <li><span class="important">Locations:</span> Intervertebral discs, pubic symphysis, knee menisci</li>
+                            <li><span class="important">Function:</span> Resists compression, absorbs shock</li>
+                        </ul>
+                    </dd>
+                </div>
+                
+                <h4>Cartilage Growth:</h4>
+                <ol>
+                    <li><span class="important">Interstitial:</span> From within (chondrocytes divide)</li>
+                    <li><span class="important">Appositional:</span> At surface (chondroblasts in perichondrium)</li>
+                </ol>
+                
+                <h4>Bone (Osseous Tissue):</h4>
+                <ul>
+                    <li><span class="important">Structure:</span> Calcified matrix with calcium salts</li>
+                    <li><span class="important">Cells:</span> <span class="highlight">Osteocytes</span> in lacunae</li>
+                    <li><span class="important">Organization:</span> <span class="highlight">Osteons</span> with central canals</li>
+                    <li><span class="important">Nutrient Transport:</span> <span class="highlight">Canaliculi</span> (tiny canals)</li>
+                    <li><span class="important">Covering:</span> <span class="highlight">Periosteum</span> (fibrous + cellular layers)</li>
+                </ul>
+                
+                <h2>D. Fascia: Layers of Connective Tissue</h2>
+                <ol>
+                    <li><span class="important">Superficial Fascia (Subcutaneous layer/Hypodermis):</span>
+                        <ul>
+                            <li>Areolar + adipose tissue</li>
+                            <li>Separates skin from deeper structures</li>
+                            <li>Provides insulation and padding</li>
+                        </ul>
+                    </li>
+                    <li><span class="important">Deep Fascia:</span>
+                        <ul>
+                            <li>Dense regular connective tissue</li>
+                            <li>Forms strong fibrous framework</li>
+                            <li>Binds muscles together</li>
+                        </ul>
+                    </li>
+                    <li><span class="important">Subserous Fascia:</span>
+                        <ul>
+                            <li>Areolar tissue</li>
+                            <li>Between deep fascia and serous membranes</li>
+                        </ul>
+                    </li>
+                </ol>
+            </section>
+            
+            <!-- Muscle Tissue Section -->
+            <section id="muscle-tissue" class="section" style="display: none;">
+                <h1>Muscle Tissue</h1>
+                
+                <div class="definition">
+                    <dt>Definition:</dt>
+                    <dd>Tissue specialized for contraction to produce movement. Three types with different structures and functions.</dd>
+                </div>
+                
+                <div class="key-concept">
+                    <h3><i class="fas fa-star"></i> Key Concept</h3>
+                    <p>All muscle tissues are excitable (respond to stimuli), contractile (can shorten), extensible (can stretch), and elastic (return to original length).</p>
+                </div>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Structure</th>
+                                <th>Location</th>
+                                <th>Function</th>
+                                <th>Control</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="highlight">Skeletal Muscle</span></td>
+                                <td>Long, cylindrical, striated, multinucleated</td>
+                                <td>Attached to bones</td>
+                                <td>Voluntary movement; generates heat; protects organs</td>
+                                <td><span class="important">Voluntary</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight">Cardiac Muscle</span></td>
+                                <td>Short, branched, striated, 1–2 nuclei; <span class="important">intercalated discs</span></td>
+                                <td>Heart wall (myocardium)</td>
+                                <td>Pumps blood; involuntary contraction</td>
+                                <td><span class="important">Involuntary</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight">Smooth Muscle</span></td>
+                                <td>Short, spindle-shaped, non-striated, 1 nucleus</td>
+                                <td>Walls of hollow organs (gut, blood vessels, bladder)</td>
+                                <td>Moves materials; regulates organ diameter</td>
+                                <td><span class="important">Involuntary</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="exam-tip">
+                    <h3><i class="fas fa-graduation-cap"></i> Exam Tip</h3>
+                    <p>Remember: Skeletal = voluntary, striated, multinucleated. Cardiac = involuntary, striated, intercalated discs. Smooth = involuntary, non-striated, spindle-shaped.</p>
+                </div>
+            </section>
+            
+            <!-- Membranes Section -->
+            <section id="membranes" class="section" style="display: none;">
+                <h1>Membranes</h1>
+                
+                <div class="definition">
+                    <dt>Definition:</dt>
+                    <dd>Thin layers of epithelial and connective tissue that line body surfaces, cavities, and organs.</dd>
+                </div>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Membrane Type</th>
+                                <th>Structure</th>
+                                <th>Location</th>
+                                <th>Function</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="highlight">Mucous Membrane (Mucosa)</span></td>
+                                <td>Epithelium + <span class="important">Lamina Propria</span> (areolar tissue)</td>
+                                <td>Lines cavities open to exterior (digestive, respiratory, urinary, reproductive tracts)</td>
+                                <td>Protection, secretion, absorption; kept moist</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight">Serous Membrane (Serosa)</span></td>
+                                <td><span class="important">Mesothelium</span> (simple squamous) + areolar tissue</td>
+                                <td>Lines sealed internal cavities</td>
+                                <td>Reduces friction; secretes serous fluid</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight">Cutaneous Membrane</span></td>
+                                <td>Stratified squamous epithelium + dense irregular connective tissue</td>
+                                <td>The <span class="important">skin</span></td>
+                                <td>Protection, sensation, thermoregulation</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight">Synovial Membrane</span></td>
+                                <td>Areolar tissue + adipose; no epithelium</td>
+                                <td>Lines joint cavities</td>
+                                <td>Secretes synovial fluid; reduces friction in joints</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h2>Serous Membrane Types</h2>
+                <ol>
+                    <li><span class="important">Peritoneum:</span> Abdominal cavity</li>
+                    <li><span class="important">Pleura:</span> Lungs</li>
+                    <li><span class="important">Pericardium:</span> Heart</li>
+                </ol>
+                
+                <div class="key-concept">
+                    <h3><i class="fas fa-star"></i> Key Concept</h3>
+                    <p>All membranes consist of an epithelial layer and an underlying connective tissue layer. The type of epithelium and connective tissue varies based on the membrane's location and function.</p>
+                </div>
+            </section>
+            
+            <!-- Integumentary System Section -->
+            <section id="integumentary-system" class="section" style="display: none;">
+                <h1>Integumentary System (Skin)</h1>
+                
+                <div class="definition">
+                    <dt>Definition:</dt>
+                    <dd>The body's largest organ system consisting of skin and its accessory structures (hair, nails, glands).</dd>
+                </div>
+                
+                <h2>A. Structure</h2>
+                
+                <h3>Layers:</h3>
+                <ol>
+                    <li><span class="important">Epidermis:</span> Stratified squamous epithelium (keratinized)
+                        <ul>
+                            <li><span class="highlight">Layers:</span> Stratum corneum, lucidum, granulosum, spinosum, basale</li>
+                        </ul>
+                    </li>
+                    <li><span class="important">Dermis:</span> Dense irregular connective tissue
+                        <ul>
+                            <li><span class="highlight">Papillary layer:</span> Areolar tissue</li>
+                            <li><span class="highlight">Reticular layer:</span> Dense irregular CT</li>
+                            <li>Contains: Blood vessels, glands, hair follicles</li>
+                        </ul>
+                    </li>
+                    <li><span class="important">Hypodermis (Subcutaneous):</span> Adipose + areolar tissue
+                        <ul>
+                            <li>Not part of skin proper</li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <h2>B. Accessory Structures</h2>
+                <ul>
+                    <li>Hair</li>
+                    <li>Nails</li>
+                    <li>Sweat glands</li>
+                    <li>Sebaceous (oil) glands</li>
+                </ul>
+                
+                <h2>C. Functions</h2>
+                <ol>
+                    <li><span class="important">Protection:</span> Physical barrier against pathogens/environment</li>
+                    <li><span class="important">Temperature Regulation:</span> Sweat glands, blood vessel adjustment</li>
+                    <li><span class="important">Sensation:</span> Contains sensory receptors</li>
+                    <li><span class="important">Vitamin D Synthesis:</span> Sunlight exposure initiates production</li>
+                    <li><span class="important">Excretion:</span> Through sweat</li>
+                    <li><span class="important">Absorption:</span> Limited (e.g., medications)</li>
+                </ol>
+                
+                <h2>D. Sensory Receptors in Skin</h2>
+                
+                <h3>Free Nerve Endings:</h3>
+                <ul>
+                    <li><span class="highlight">Nociceptors:</span> Detect pain</li>
+                    <li><span class="highlight">Thermoreceptors:</span> Detect temperature</li>
+                    <li>Others: Touch, itch</li>
+                </ul>
+                
+                <h3>Encapsulated Nerve Endings:</h3>
+                <ul>
+                    <li><span class="highlight">Meissner's Corpuscles:</span> Light touch, pressure</li>
+                    <li><span class="highlight">Pacinian Corpuscles:</span> Deep pressure, vibration</li>
+                    <li><span class="highlight">Ruffini Endings:</span> Deep pressure, stretch</li>
+                    <li><span class="highlight">Merkel Cells:</span> Fine touch, texture</li>
+                </ul>
+                
+                <h3>Hair Follicle Receptors:</h3>
+                <ul>
+                    <li>Wrap around hair follicles</li>
+                    <li>Sense hair movement</li>
+                </ul>
+                
+                <h2>E. Skin Types</h2>
+                <ul>
+                    <li><span class="important">Thick Skin:</span> Hairless (palms, soles); more stratum corneum layers</li>
+                    <li><span class="important">Thin Skin:</span> Hairy (most of body); fewer layers</li>
+                </ul>
+                
+                <div class="exam-tip">
+                    <h3><i class="fas fa-graduation-cap"></i> Exam Tip</h3>
+                    <p>Remember the order of epidermal layers from deep to superficial: Stratum Basale, Spinosum, Granulosum, Lucidum (only in thick skin), Corneum. Use mnemonic: "British Soldiers Get Lots of Cookies"</p>
+                </div>
+            </section>
+            
+            <!-- Comparison Tables Section -->
+            <section id="comparison-tables" class="section" style="display: none;">
+                <h1>Comparison Tables</h1>
+                
+                <h2>Cartilage Types Comparison</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Hyaline Cartilage</th>
+                                <th>Elastic Cartilage</th>
+                                <th>Fibrocartilage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="important">Matrix</span></td>
+                                <td>Type II collagen, aggrecan</td>
+                                <td>Type II collagen, elastic fibers</td>
+                                <td>Type I & II collagen</td>
+                            </tr>
+                            <tr>
+                                <td><span class="important">Cells</span></td>
+                                <td>Chondrocytes</td>
+                                <td>Chondrocytes</td>
+                                <td>Fibrochondrocytes</td>
+                            </tr>
+                            <tr>
+                                <td><span class="important">Perichondrium</span></td>
+                                <td>Present</td>
+                                <td>Present</td>
+                                <td>Absent</td>
+                            </tr>
+                            <tr>
+                                <td><span class="important">Locations</span></td>
+                                <td>Rib-sternum joints, trachea, fetal skeleton</td>
+                                <td>External ear, epiglottis</td>
+                                <td>Intervertebral discs, knee menisci</td>
+                            </tr>
+                            <tr>
+                                <td><span class="important">Function</span></td>
+                                <td>Support, reduce friction</td>
+                                <td>Flexible support</td>
+                                <td>Resist compression, absorb shock</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h2>Bone vs. Cartilage</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Characteristic</th>
+                                <th>Cartilage</th>
+                                <th>Bone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="important">Cells</span></td>
+                                <td>Chondrocytes in lacunae</td>
+                                <td>Osteocytes in lacunae</td>
+                            </tr>
+                            <tr>
+                                <td><span class="important">Matrix</span></td>
+                                <td>Chondroitin sulfate, water</td>
+                                <td>Calcium salts (calcified)</td>
+                            </tr>
+                            <tr>
+                                <td><span class="important">Vascularity</span></td>
+                                <td>Avascular</td>
+                                <td>Highly vascular</td>
+                            </tr>
+                            <tr>
+                                <td><span class="important">Covering</span></td>
+                                <td>Perichondrium</td>
+                                <td>Periosteum</td>
+                            </tr>
+                            <tr>
+                                <td><span class="important">Strength</span></td>
+                                <td>Flexible, hard to break</td>
+                                <td>Strong, resists distortion</td>
+                            </tr>
+                            <tr>
+                                <td><span class="important">Growth</span></td>
+                                <td>Interstitial & appositional</td>
+                                <td>Appositional only</td>
+                            </tr>
+                            <tr>
+                                <td><span class="important">Repair</span></td>
+                                <td>Limited</td>
+                                <td>Extensive</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="key-concept">
+                    <h3><i class="fas fa-star"></i> Key Concept</h3>
+                    <p>Comparison tables are excellent study tools. Create your own for other tissue comparisons like simple vs. stratified epithelia, or loose vs. dense connective tissue.</p>
+                </div>
+            </section>
+            
+            <!-- Key Concepts Section -->
+            <section id="key-concepts" class="section" style="display: none;">
+                <h1>Key Exam Concepts</h1>
+                
+                <div class="key-concept">
+                    <h2><i class="fas fa-check-circle"></i> Essential Knowledge for SFU Exam</h2>
+                    <p>Focus on these high-yield topics for your physiology exam:</p>
+                </div>
+                
+                <ol>
+                    <li><span class="important">Epithelial Classification:</span> Know all types with locations and functions
+                        <ul>
+                            <li>Simple vs. stratified</li>
+                            <li>Squamous, cuboidal, columnar shapes</li>
+                            <li>Special types: pseudostratified, transitional</li>
+                        </ul>
+                    </li>
+                    
+                    <li><span class="important">Connective Tissue Cells:</span> Functions of key cells
+                        <ul>
+                            <li>Fibroblasts, fibrocytes, adipocytes</li>
+                            <li>Macrophages, mast cells (histamine/heparin)</li>
+                            <li>Mesenchymal cells (stem cells)</li>
+                        </ul>
+                    </li>
+                    
+                    <li><span class="important">Dense Regular vs. Irregular:</span>
+                        <ul>
+                            <li>Regular: Parallel fibers → tendons/ligaments</li>
+                            <li>Irregular: Irregular fibers → dermis/organ capsules</li>
+                        </ul>
+                    </li>
+                    
+                    <li><span class="important">Cartilage Types:</span> Locations and special properties
+                        <ul>
+                            <li>Hyaline: Most common, reduces friction</li>
+                            <li>Elastic: Flexible (ear, epiglottis)</li>
+                            <li>Fibrocartilage: Tough (intervertebral discs)</li>
+                        </ul>
+                    </li>
+                    
+                    <li><span class="important">Membranes:</span> Structure and locations
+                        <ul>
+                            <li>Mucous, serous, cutaneous, synovial</li>
+                            <li>Know epithelial type and connective tissue component</li>
+                        </ul>
+                    </li>
+                    
+                    <li><span class="important">Skin Layers:</span> Epidermis, dermis, hypodermis
+                        <ul>
+                            <li>Components and functions of each</li>
+                            <li>Epidermal layers in order</li>
+                        </ul>
+                    </li>
+                    
+                    <li><span class="important">Sensory Receptors:</span> Types and what they detect
+                        <ul>
+                            <li>Free nerve endings vs. encapsulated</li>
+                            <li>Specific receptors: Meissner's, Pacinian, Ruffini, Merkel</li>
+                        </ul>
+                    </li>
+                    
+                    <li><span class="important">Fascia Layers:</span> Superficial, deep, subserous
+                        <ul>
+                            <li>Composition and function of each</li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <div class="exam-tip">
+                    <h3><i class="fas fa-graduation-cap"></i> Final Study Strategy</h3>
+                    <p><span class="important">Focus on structure-function relationships.</span> For each tissue type, ask: "Why is it structured this way for its location and function?" This approach will help you understand rather than just memorize, leading to better exam performance.</p>
+                </div>
+                
+                <div style="background-color: rgba(212, 175, 55, 0.1); padding: 1.5rem; border-radius: var(--border-radius); margin-top: 2rem; border: 1px solid var(--primary-gold);">
+                    <h3 style="color: var(--primary-gold);"><i class="fas fa-award"></i> Good Luck!</h3>
+                    <p>You've prepared well with these comprehensive notes. Remember to review diagrams and practice applying concepts to clinical scenarios relevant to physiotherapy.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>SFU Bachelor of Science (Honours) in Physiotherapy Programme 2025 - 2026</p>
+        <p>Human Physiology (BPHY 102) • Mr Tommy YU (A401) and Mr Eric LAW (A802)</p>
+        <div class="footer-links">
+            <a href="#" class="footer-link" id="print-btn"><i class="fas fa-print"></i> Print Notes</a>
+            <a href="#" class="footer-link" id="dark-mode"><i class="fas fa-moon"></i> Toggle Theme</a>
+            <a href="#" class="footer-link" id="top-btn"><i class="fas fa-arrow-up"></i> Back to Top</a>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">Based on SFU BPHY 102 Lecture Notes and Fundamentals of Anatomy & Physiology (Martini et al.)</p>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all navigation elements
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sidebarLinks = document.querySelectorAll('.sidebar-link');
+            const sections = document.querySelectorAll('.section');
+            
+            // Set first section as active by default
+            showSection('epithelial-tissue');
+            
+            // Handle top navigation clicks
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all nav links
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Show corresponding section
+                    const sectionId = this.getAttribute('data-section');
+                    let targetSection;
+                    
+                    switch(sectionId) {
+                        case 'epithelial':
+                            targetSection = 'epithelial-tissue';
+                            break;
+                        case 'connective':
+                            targetSection = 'connective-tissue';
+                            break;
+                        case 'membranes':
+                            targetSection = 'membranes';
+                            break;
+                        case 'integumentary':
+                            targetSection = 'integumentary-system';
+                            break;
+                    }
+                    
+                    showSection(targetSection);
+                    updateSidebarActive(targetSection);
+                });
+            });
+            
+            // Handle sidebar navigation clicks
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all sidebar links
+                    sidebarLinks.forEach(sidebar => sidebar.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Show corresponding section
+                    const targetId = this.getAttribute('href').substring(1);
+                    showSection(targetId);
+                    
+                    // Update top navigation based on section
+                    updateTopNav(targetId);
+                });
+            });
+            
+            // Function to show a specific section
+            function showSection(sectionId) {
+                // Hide all sections
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+                
+                // Show the target section
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.style.display = 'block';
+                    
+                    // Scroll to the top of the section
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+            
+            // Function to update sidebar active link
+            function updateSidebarActive(sectionId) {
+                sidebarLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            // Function to update top navigation based on section
+            function updateTopNav(sectionId) {
+                let navSection;
+                
+                switch(sectionId) {
+                    case 'epithelial-tissue':
+                        navSection = 'epithelial';
+                        break;
+                    case 'connective-tissue':
+                    case 'muscle-tissue':
+                        navSection = 'connective';
+                        break;
+                    case 'membranes':
+                        navSection = 'membranes';
+                        break;
+                    case 'integumentary-system':
+                    case 'comparison-tables':
+                    case 'key-concepts':
+                        navSection = 'integumentary';
+                        break;
+                }
+                
+                if (navSection) {
+                    navLinks.forEach(nav => {
+                        nav.classList.remove('active');
+                        if (nav.getAttribute('data-section') === navSection) {
+                            nav.classList.add('active');
+                        }
+                    });
+                }
+            }
+            
+            // Print functionality
+            document.getElementById('print-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.print();
+            });
+            
+            // Back to top functionality
+            document.getElementById('top-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Theme toggle functionality
+            document.getElementById('dark-mode').addEventListener('click', function(e) {
+                e.preventDefault();
+                const body = document.body;
+                const currentBg = getComputedStyle(body).backgroundColor;
+                
+                if (currentBg === 'rgb(15, 15, 15)' || currentBg === '#0f0f0f') {
+                    // Switch to light theme
+                    body.style.backgroundColor = '#f5f5f5';
+                    body.style.color = '#333';
+                    
+                    // Update CSS variables for light theme
+                    document.documentElement.style.setProperty('--dark-bg', '#f5f5f5');
+                    document.documentElement.style.setProperty('--medium-bg', '#e0e0e0');
+                    document.documentElement.style.setProperty('--light-bg', '#ffffff');
+                    document.documentElement.style.setProperty('--text-light', '#333333');
+                    document.documentElement.style.setProperty('--text-medium', '#555555');
+                    
+                    this.innerHTML = '<i class="fas fa-sun"></i> Dark Theme';
+                } else {
+                    // Switch back to dark theme
+                    body.style.backgroundColor = '';
+                    body.style.color = '';
+                    
+                    // Reset CSS variables to dark theme
+                    document.documentElement.style.setProperty('--dark-bg', '#0F0F0F');
+                    document.documentElement.style.setProperty('--medium-bg', '#1A1A1A');
+                    document.documentElement.style.setProperty('--light-bg', '#252525');
+                    document.documentElement.style.setProperty('--text-light', '#F5F5F5');
+                    document.documentElement.style.setProperty('--text-medium', '#CCCCCC');
+                    
+                    this.innerHTML = '<i class="fas fa-moon"></i> Light Theme';
+                }
+            });
+            
+            // Highlight important terms on click
+            const importantTerms = document.querySelectorAll('.important, .highlight');
+            importantTerms.forEach(term => {
+                term.addEventListener('click', function() {
+                    this.style.backgroundColor = 'rgba(212, 175, 55, 0.3)';
+                    setTimeout(() => {
+                        this.style.backgroundColor = '';
+                    }, 1000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
